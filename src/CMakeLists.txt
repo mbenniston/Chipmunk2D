@@ -15,6 +15,8 @@ if(BUILD_SHARED)
   add_library(chipmunk SHARED
     ${chipmunk_source_files}
   )
+  target_include_directories(chipmunk PUBLIC ${chipmunk_SOURCE_DIR}/include)
+
   # Tell MSVC to compile the code as C++.
   if(MSVC)
     set_source_files_properties(${chipmunk_source_files} PROPERTIES LANGUAGE CXX)
@@ -40,6 +42,8 @@ if(BUILD_STATIC)
   add_library(chipmunk_static STATIC
     ${chipmunk_source_files}
   )
+  target_include_directories(chipmunk_static PUBLIC ${chipmunk_SOURCE_DIR}/include)
+
   # Tell MSVC to compile the code as C++.
   if(MSVC)
     set_source_files_properties(${chipmunk_source_files} PROPERTIES LANGUAGE CXX)
